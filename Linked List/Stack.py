@@ -17,8 +17,14 @@ class Stack:
       return temp
    
    def peek(self):
-      if (isEmpty()):
-         return head
+      return head
+      
+   def dump(self):
+     temp = head;
+     while (temp != null):
+       print(temp.key);
+       temp = temp.next;
+     return
    
    def isEmpty(self):
       return (count == 0)
