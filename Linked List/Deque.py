@@ -1,64 +1,46 @@
-class Deque {
-// ######################################
-// Class Variables
-   private Node head;
-   private Node tail;
-   private int count;
+class Deque:
+# ######################################
+# Class Variables
+   head = Node("")
+   tail = Node()
+   count = 0
 
-// ######################################
-// Public Methods
-/* a method the lets you add the the back of the queue */
-   public void enqueue(int num){
-      Node backOfLine = new Node (int num);
-      if (isEmpty()){
-         head = backOfLine;
-         tail = backOfLine;      
-      } else {
-         tail.next = backOfLine;
-         tail = backOfLine;
-      }
-      count += 1;
-      return;
-   }
+# ######################################
+# Public Methods
+   def enqueue(self, key):
+      backOfLine = Node (key)
+      if (isEmpty()):
+         head = backOfLine
+         tail = backOfLine      
+      else:
+         tail.next = backOfLine
+         tail = backOfLine
+      count += 1
+      return
 
-/* this method will add a new node to the top of the list */
-   public void push(String str){
-      Node body = new Node(str);
-      body.key = str;
-      body.next = head;
-      head = body;
-      return;
-   }
+   def push(String str):
+      body = Node(str);
+      body.next = head
+      head = body
+      return
 
-/* method that removes nodes from the top of the stack */
-   public String pop(){
-      String temp = head.key;
-      head = head.next;
-      return temp;
-   }
-  
-/* a method that returns true if the queue is empty */
-   public boolean isEmpty(){
-      return (count == 0);
-   }  
-
-/* a method that returns the front element of the queue */
-   public int peek(){
-      if (!isEmpty()){ return head; }
-   }
-}
-// ######################################
-// Sub-Class
-class Node extends Deque {
-   // #################################
-   // Class Variables
-   int key;
-   Node next;
+   def pop():
+      temp = head.key
+      head = head.next
+      return temp
    
-   // #################################
-   Constructor
-   Node (int idNum){
-      key = idNum;
-      next = null;
-   }
-}
+   def isEmpty():
+      return (count == 0)
+
+   def peek():
+      if (!isEmpty()): 
+         return head
+      
+# ######################################
+# Sub-Class
+class Node(Deque):
+   # #################################
+   # Constructor
+   Node (self, string):
+      self.key = key
+      next = null
